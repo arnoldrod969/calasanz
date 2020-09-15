@@ -60,7 +60,7 @@ MIDDLEWARE = [
 ]
 
 CORS_ORIGIN_WHITELIST = (
-'http://localhost:3000','http://localhost:8000', 'https://www.calasanzapp.herokuapp.com'
+'http://localhost:3000','http://localhost:8000', 'https://www.calasanzapp.herokuapp.com','https://calasanz-observatory.herokuapp.com'
 )
 
 REST_FRAMEWORK = {
