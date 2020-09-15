@@ -1,0 +1,14 @@
+calasanzPFE,public,django_migrations_id_seq,integer,32,2,0,1,1,2147483647,1,NO
+calasanzPFE,public,django_content_type_id_seq,integer,32,2,0,1,1,2147483647,1,NO
+calasanzPFE,public,auth_permission_id_seq,integer,32,2,0,1,1,2147483647,1,NO
+calasanzPFE,public,auth_group_id_seq,integer,32,2,0,1,1,2147483647,1,NO
+calasanzPFE,public,auth_group_permissions_id_seq,integer,32,2,0,1,1,2147483647,1,NO
+calasanzPFE,public,auth_user_id_seq,integer,32,2,0,1,1,2147483647,1,NO
+calasanzPFE,public,auth_user_groups_id_seq,integer,32,2,0,1,1,2147483647,1,NO
+calasanzPFE,public,auth_user_user_permissions_id_seq,integer,32,2,0,1,1,2147483647,1,NO
+calasanzPFE,public,django_admin_log_id_seq,integer,32,2,0,1,1,2147483647,1,NO
+calasanzPFE,public,api_document_id_seq,integer,32,2,0,1,1,2147483647,1,NO
+calasanzPFE,public,api_nature_id_seq,integer,32,2,0,1,1,2147483647,1,NO
+calasanzPFE,public,api_region_id_seq,integer,32,2,0,1,1,2147483647,1,NO
+calasanzPFE,public,api_pays_id_seq,integer,32,2,0,1,1,2147483647,1,NO
+calasanzPFE,public,api_pays_documents_id_seq,integer,32,2,0,1,1,2147483647,1,NO

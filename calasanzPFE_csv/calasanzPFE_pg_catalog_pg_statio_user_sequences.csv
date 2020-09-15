@@ -1,0 +1,14 @@
+24843,public,django_migrations_id_seq,1,1
+24854,public,django_content_type_id_seq,1,1
+24864,public,auth_permission_id_seq,1,1
+24872,public,auth_group_id_seq,1,1
+24882,public,auth_group_permissions_id_seq,1,1
+24890,public,auth_user_id_seq,1,1
+24900,public,auth_user_groups_id_seq,1,1
+24908,public,auth_user_user_permissions_id_seq,1,1
+24968,public,django_admin_log_id_seq,1,1
+24992,public,api_document_id_seq,1,1
+25003,public,api_nature_id_seq,1,1
+25011,public,api_region_id_seq,1,1
+25019,public,api_pays_id_seq,1,1
+25027,public,api_pays_documents_id_seq,1,1

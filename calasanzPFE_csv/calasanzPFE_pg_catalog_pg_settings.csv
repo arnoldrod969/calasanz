@@ -1,0 +1,413 @@
+allow_system_table_mods,off,,Options pour le développeur,Permet les modifications de la structure des tables systèmes.,,postmaster,bool,default,,,,off,off,,,false
+application_name,PostgreSQL JDBC Driver,,Rapports et traces / Que tracer,Configure le nom de l'application à indiquer dans les statistiques et les journaux.,,user,string,session,,,,"","",,,false
+archive_cleanup_command,"",,Write-Ahead Log / Restauration d'archive,Définit la commande shell qui sera appelée à chaque point de reprise (restart point).,,sighup,string,default,,,,"","",,,false
+archive_command,(disabled),,Write-Ahead Log / Archivage,La commande shell qui sera appelée pour archiver un journal de transaction.,,sighup,string,default,,,,"","",,,false
+archive_mode,off,,Write-Ahead Log / Archivage,Autorise l'archivage des journaux de transactions en utilisant archive_command.,,postmaster,enum,default,,,"{always,on,off}",off,off,,,false
+archive_timeout,0,s,Write-Ahead Log / Archivage,"Force un changement du journal de transaction si un nouveau fichier n'a pas
+été créé depuis N secondes.",,sighup,integer,default,0,1073741823,,0,0,,,false
+array_nulls,on,,Compatibilité des versions et des plateformes / Anciennes versions de PostgreSQL,Active la saisie d'éléments NULL dans les tableaux.,"Si activé, un NULL sans guillemets en tant que valeur d'entrée dans un
+tableau signifie une valeur NULL ; sinon, il sera pris littéralement.",user,bool,default,,,,on,on,,,false
+authentication_timeout,60,s,Connexions et authentification / Authentification,"Initialise le temps maximum en secondes pour terminer l'authentification du
+client.",,sighup,integer,default,1,600,,60,60,,,false
+autovacuum,on,,Autovacuum,Exécute le sous-processus de l'autovacuum.,,sighup,bool,default,,,,on,on,,,false
+autovacuum_analyze_scale_factor,0.1,,Autovacuum,"Nombre de lignes insérées, mises à jour ou supprimées avant d'analyser
+une fraction de reltuples.",,sighup,real,default,0,100,,0.1,0.1,,,false
+autovacuum_analyze_threshold,50,,Autovacuum,"Nombre minimum de lignes insérées, mises à jour ou supprimées avant un ANALYZE.",,sighup,integer,default,0,2147483647,,50,50,,,false
+autovacuum_freeze_max_age,200000000,,Autovacuum,Âge à partir duquel l'autovacuum se déclenche sur une table pour empêcher un rebouclage des identifiants de transaction.,,postmaster,integer,default,100000,2000000000,,200000000,200000000,,,false
+autovacuum_max_workers,3,,Autovacuum,Initialise le nombre maximum de processus autovacuum exécutés simultanément.,,postmaster,integer,default,1,262143,,3,3,,,false
+autovacuum_multixact_freeze_max_age,400000000,,Autovacuum,Âge multixact à partir duquel l'autovacuum se déclenche sur une table pour empêcher la réinitialisation du multixact,,postmaster,integer,default,10000,2000000000,,400000000,400000000,,,false
+autovacuum_naptime,60,s,Autovacuum,Durée d'endormissement entre deux exécutions d'autovacuum.,,sighup,integer,default,1,2147483,,60,60,,,false
+autovacuum_vacuum_cost_delay,2,ms,Autovacuum,"Délai d'un coût de VACUUM en millisecondes, pour autovacuum.",,sighup,real,default,-1,100,,2,2,,,false
+autovacuum_vacuum_cost_limit,-1,,Autovacuum,"Coût du VACUUM disponible avant un repos, pour autovacuum.",,sighup,integer,default,-1,10000,,-1,-1,,,false
+autovacuum_vacuum_scale_factor,0.2,,Autovacuum,"Nombre de lignes modifiées ou supprimées avant d'exécuter un VACUUM
+(fraction de reltuples).",,sighup,real,default,0,100,,0.2,0.2,,,false
+autovacuum_vacuum_threshold,50,,Autovacuum,Nombre minimum de lignes mises à jour ou supprimées avant le VACUUM.,,sighup,integer,default,0,2147483647,,50,50,,,false
+autovacuum_work_mem,-1,kB,Utilisation des ressources / Mémoire,Initialise la mémoire maximum utilisée par chaque processus autovacuum worker.,,sighup,integer,default,-1,2097151,,-1,-1,,,false
+backend_flush_after,0,8kB,Utilisation des ressources / Comportement asynchrone,Nombre de pages après lequel les précédentes écritures seront synchronisées sur disque.,,user,integer,default,0,256,,0,0,,,false
+backslash_quote,safe_encoding,,Compatibilité des versions et des plateformes / Anciennes versions de PostgreSQL,Indique si « \' » est autorisé dans une constante de chaîne.,,user,enum,default,,,"{safe_encoding,on,off}",safe_encoding,safe_encoding,,,false
+bgwriter_delay,200,ms,Utilisation des ressources / Processus d'écriture en tâche de fond,Durée d'endormissement du processus d'écriture en tâche de fond (background writer) entre deux cycles.,,sighup,integer,default,10,10000,,200,200,,,false
+bgwriter_flush_after,0,8kB,Utilisation des ressources / Processus d'écriture en tâche de fond,Nombre de pages après lequel les précédentes écritures seront synchronisées sur disque.,,sighup,integer,default,0,256,,0,0,,,false
+bgwriter_lru_maxpages,100,,Utilisation des ressources / Processus d'écriture en tâche de fond,Nombre maximum de pages LRU à nettoyer par le processus d'écriture en tâche de fond (background writer),,sighup,integer,default,0,1073741823,,100,100,,,false
+bgwriter_lru_multiplier,2,,Utilisation des ressources / Processus d'écriture en tâche de fond,Multiplede l'utilisation moyenne des tampons à libérer à chaque tour.,,sighup,real,default,0,10,,2,2,,,false
+block_size,8192,,Options pré-configurées,Affiche la taille d'un bloc de disque.,,internal,integer,default,8192,8192,,8192,8192,,,false
+bonjour,off,,Connexions et authentification / Paramètrages de connexion,Active la publication du serveur via Bonjour.,,postmaster,bool,default,,,,off,off,,,false
+bonjour_name,"",,Connexions et authentification / Paramètrages de connexion,Initialise le nom du service Bonjour.,,postmaster,string,default,,,,"","",,,false
+bytea_output,hex,,Valeurs par défaut pour les connexions client / Comportement des instructions,Initialise le format de sortie pour bytea.,,user,enum,default,,,"{escape,hex}",hex,hex,,,false
+check_function_bodies,on,,Valeurs par défaut pour les connexions client / Comportement des instructions,Vérifie les corps de fonction lors du CREATE FUNCTION.,,user,bool,default,,,,on,on,,,false
+checkpoint_completion_target,0.5,,Write-Ahead Log / Points de vérification (Checkpoints),"Temps passé à vider les tampons lors du point de vérification, en tant que
+fraction de l'intervalle du point de vérification.",,sighup,real,default,0,1,,0.5,0.5,,,false
+checkpoint_flush_after,0,8kB,Write-Ahead Log / Points de vérification (Checkpoints),Nombre de pages après lequel les précédentes écritures seront synchronisées sur disque.,,sighup,integer,default,0,256,,0,0,,,false
+checkpoint_timeout,300,s,Write-Ahead Log / Points de vérification (Checkpoints),"Initialise le temps maximum entre des points de vérification (checkpoints)
+pour les journaux de transactions.",,sighup,integer,default,30,86400,,300,300,,,false
+checkpoint_warning,30,s,Write-Ahead Log / Points de vérification (Checkpoints),"Active des messages d'avertissement si les segments des points de
+vérifications se remplissent plus fréquemment que cette durée.","Écrit un message dans les journaux applicatifs du serveur si les points de
+vérifications causées par le remplissage des journaux de transaction avec
+des points de vérification qui arrivent plus fréquemment que ce nombre de
+secondes. Une valeur 0 désactive l'avertissement.",sighup,integer,default,0,2147483647,,30,30,,,false
+client_encoding,UTF8,,Valeurs par défaut pour les connexions client / Locale et formattage,Initialise l'encodage du client.,,user,string,client,,,,SQL_ASCII,UTF8,,,false
+client_min_messages,notice,,Valeurs par défaut pour les connexions client / Comportement des instructions,Initialise les niveaux de message envoyés au client.,"Chaque niveau inclut les niveaux qui suivent. Plus loin sera le niveau,
+moindre sera le nombre de messages envoyés.",user,enum,default,,,"{debug5,debug4,debug3,debug2,debug1,log,notice,warning,error}",notice,notice,,,false
+cluster_name,"",,Titre du processus,"Configure le nom du cluster, qui est inclus dans le titre du processus.",,postmaster,string,default,,,,"","",,,false
+commit_delay,0,,Write-Ahead Log / Paramètrages,"Initialise le délai en microsecondes entre l'acceptation de la transaction
+et le vidage du journal de transaction sur disque.",,superuser,integer,default,0,100000,,0,0,,,false
+commit_siblings,5,,Write-Ahead Log / Paramètrages,"Initialise le nombre minimum de transactions ouvertes simultanément avant le
+commit_delay.",,user,integer,default,0,1000,,5,5,,,false
+config_file,C:/Program Files/PostgreSQL/12/data/postgresql.conf,,Emplacement des fichiers,Voir le fichier de configuration principal du serveur.,,postmaster,string,override,,,,,C:/Program Files/PostgreSQL/12/data/postgresql.conf,,,false
+constraint_exclusion,partition,,Optimisation des requêtes / Autres options du planificateur,Active l'utilisation des contraintes par le planificateur pour optimiser les requêtes.,"Les parcours de tables seront ignorés si leur contraintes garantissent
+qu'aucune ligne ne correspond à la requête.",user,enum,default,,,"{partition,on,off}",partition,partition,,,false
+cpu_index_tuple_cost,0.005,,Optimisation des requêtes / Constantes des coûts du planificateur,"Initialise l'estimation du planificateur pour le coût de traitement de
+chaque ligne indexée lors d'un parcours d'index.",,user,real,default,0,1.79769e+308,,0.005,0.005,,,false
+cpu_operator_cost,0.0025,,Optimisation des requêtes / Constantes des coûts du planificateur,"Initialise l'estimation du planificateur pour le coût de traitement de
+chaque opérateur ou appel de fonction.",,user,real,default,0,1.79769e+308,,0.0025,0.0025,,,false
+cpu_tuple_cost,0.01,,Optimisation des requêtes / Constantes des coûts du planificateur,"Initialise l'estimation du planificateur pour le coût d'exécution sur chaque
+ligne.",,user,real,default,0,1.79769e+308,,0.01,0.01,,,false
+cursor_tuple_fraction,0.1,,Optimisation des requêtes / Autres options du planificateur,Initialise l'estimation du planificateur de la fraction des lignes d'un curseur à récupérer.,,user,real,default,0,1,,0.1,0.1,,,false
+data_checksums,off,,Options pré-configurées,Affiche si les sommes de contrôle sont activées sur les données pour cette instance.,,internal,bool,override,,,,off,off,,,false
+data_directory,C:/Program Files/PostgreSQL/12/data,,Emplacement des fichiers,Initialise le répertoire des données du serveur.,,postmaster,string,override,,,,,C:/Program Files/PostgreSQL/12/data,,,false
+data_directory_mode,0700,,Options pré-configurées,Mode du répertoire des données du serveur.,"La valeur du paramètre est une spécification numérique de mode dans la forme acceptée
+par les appels système chmod et umask (pour utiliser le format octal
+personnalisé, le numéro doit commencer par un 0 (zéro).)",internal,integer,default,0,511,,448,448,,,false
+data_sync_retry,off,,Gestion des erreurs,Soit de continuer à s'exécuter après un échec lors de la synchronisation des fichiers de données.,,postmaster,bool,default,,,,off,off,,,false
+DateStyle,"ISO, DMY",,Valeurs par défaut pour les connexions client / Locale et formattage,Initialise le format d'affichage des valeurs date et time.,Contrôle aussi l'interprétation des dates ambiguës en entrée.,user,string,client,,,,"ISO, MDY","ISO, DMY",,,false
+db_user_namespace,off,,Connexions et authentification / Authentification,Active les noms d'utilisateur par base de données.,,sighup,bool,default,,,,off,off,,,false
+deadlock_timeout,1000,ms,Gestion des verrous,Temps d'attente du verrou avant de vérifier les verrous bloqués.,,superuser,integer,default,1,2147483647,,1000,1000,,,false
+debug_assertions,off,,Options pré-configurées,Affiche si le serveur en cours d'exécution a les vérifications d'assertion activées.,,internal,bool,default,,,,off,off,,,false
+debug_pretty_print,on,,Rapports et traces / Que tracer,Indente l'affichage des arbres d'analyse et de planification.,,user,bool,default,,,,on,on,,,false
+debug_print_parse,off,,Rapports et traces / Que tracer,Trace l'arbre d'analyse de chaque requête.,,user,bool,default,,,,off,off,,,false
+debug_print_plan,off,,Rapports et traces / Que tracer,Trace le plan d'exécution de chaque requête.,,user,bool,default,,,,off,off,,,false
+debug_print_rewritten,off,,Rapports et traces / Que tracer,Trace l'arbre d'analyse réécrit de chaque requête.,,user,bool,default,,,,off,off,,,false
+default_statistics_target,100,,Optimisation des requêtes / Autres options du planificateur,Initialise la cible par défaut des statistiques.,"Ceci s'applique aux colonnes de tables qui n'ont pas de cible spécifique
+pour la colonne initialisée via ALTER TABLE SET STATISTICS.",user,integer,default,1,10000,,100,100,,,false
+default_table_access_method,heap,,Valeurs par défaut pour les connexions client / Comportement des instructions,Définit la méthode d'accès par défaut pour les nouvelles tables.,,user,string,default,,,,heap,heap,,,false
+default_tablespace,"",,Valeurs par défaut pour les connexions client / Comportement des instructions,Initialise le tablespace par défaut pour créer les tables et index.,Une chaîne vide sélectionne le tablespace par défaut de la base de données.,user,string,default,,,,"","",,,false
+default_text_search_config,pg_catalog.french,,Valeurs par défaut pour les connexions client / Locale et formattage,Initialise la configuration par défaut de la recherche plein texte.,,user,string,configuration file,,,,pg_catalog.simple,pg_catalog.french,C:/Program Files/PostgreSQL/12/data/postgresql.conf,672,false
+default_transaction_deferrable,off,,Valeurs par défaut pour les connexions client / Comportement des instructions,Initialise le statut déferrable par défaut des nouvelles transactions.,,user,bool,default,,,,off,off,,,false
+default_transaction_isolation,read committed,,Valeurs par défaut pour les connexions client / Comportement des instructions,Initialise le niveau d'isolation des transactions pour chaque nouvelle transaction.,,user,enum,default,,,"{serializable,repeatable read,read committed,read uncommitted}",read committed,read committed,,,false
+default_transaction_read_only,off,,Valeurs par défaut pour les connexions client / Comportement des instructions,Initialise le statut de lecture seule par défaut des nouvelles transactions.,,user,bool,default,,,,off,off,,,false
+dynamic_library_path,$libdir,,Valeurs par défaut pour les connexions client / Autres valeurs par défaut,Initialise le chemin des modules chargeables dynamiquement.,"Si un module chargeable dynamiquement a besoin d'être ouvert et que le nom
+spécifié n'a pas une composante répertoire (c'est-à-dire que le nom ne
+contient pas un '/'), le système cherche le fichier spécifié sur ce chemin.",superuser,string,default,,,,$libdir,$libdir,,,false
+dynamic_shared_memory_type,windows,,Utilisation des ressources / Mémoire,Sélectionne l'implémentation de la mémoire partagée dynamique.,,postmaster,enum,configuration file,,,{windows},windows,windows,C:/Program Files/PostgreSQL/12/data/postgresql.conf,140,false
+effective_cache_size,524288,8kB,Optimisation des requêtes / Constantes des coûts du planificateur,Initialise le sentiment du planificateur sur la taille des caches disques.,"C'est-à-dire, la portion des caches disques (noyau et PostgreSQL) qui sera utilisé pour les
+fichiers de données de PostgreSQL. C'est mesuré en pages disque, qui font
+normalement 8 Ko chaque.",user,integer,default,1,2147483647,,524288,524288,,,false
+effective_io_concurrency,0,,Utilisation des ressources / Comportement asynchrone,Nombre de requêtes simultanées pouvant être gérées efficacement par le sous-système disque.,"Pour les systèmes RAID, cela devrait être approximativement le nombre de
+têtes de lecture du système.",user,integer,default,0,1000,,0,0,,,false
+enable_bitmapscan,on,,Optimisation des requêtes / Configuration de la méthode du planificateur,Active l'utilisation des parcours de bitmap par le planificateur.,,user,bool,default,,,,on,on,,,false
+enable_gathermerge,on,,Optimisation des requêtes / Configuration de la méthode du planificateur,Active l'utilisation de plans GATHER MERGE par le planificateur.,,user,bool,default,,,,on,on,,,false
+enable_hashagg,on,,Optimisation des requêtes / Configuration de la méthode du planificateur,Active l'utilisation de plans d'agrégats hâchés par le planificateur.,,user,bool,default,,,,on,on,,,false
+enable_hashjoin,on,,Optimisation des requêtes / Configuration de la méthode du planificateur,Active l'utilisation de plans de jointures hâchées par le planificateur.,,user,bool,default,,,,on,on,,,false
+enable_indexonlyscan,on,,Optimisation des requêtes / Configuration de la méthode du planificateur,Active l'utilisation des parcours d'index seul par le planificateur.,,user,bool,default,,,,on,on,,,false
+enable_indexscan,on,,Optimisation des requêtes / Configuration de la méthode du planificateur,Active l'utilisation des parcours d'index par le planificateur.,,user,bool,default,,,,on,on,,,false
+enable_material,on,,Optimisation des requêtes / Configuration de la méthode du planificateur,Active l'utilisation de la matérialisation par le planificateur.,,user,bool,default,,,,on,on,,,false
+enable_mergejoin,on,,Optimisation des requêtes / Configuration de la méthode du planificateur,Active l'utilisation de plans de jointures MERGE par le planificateur.,,user,bool,default,,,,on,on,,,false
+enable_nestloop,on,,Optimisation des requêtes / Configuration de la méthode du planificateur,Active l'utilisation de plans avec des jointures imbriquées par le planificateur.,,user,bool,default,,,,on,on,,,false
+enable_parallel_append,on,,Optimisation des requêtes / Configuration de la méthode du planificateur,Active l'utilisation de plans Append parallèles par le planificateur.,,user,bool,default,,,,on,on,,,false
+enable_parallel_hash,on,,Optimisation des requêtes / Configuration de la méthode du planificateur,Active l'utilisation de plans de jointures hâchées parallèles par le planificateur.,,user,bool,default,,,,on,on,,,false
+enable_partition_pruning,on,,Optimisation des requêtes / Configuration de la méthode du planificateur,Active l'élagage de partition durant la planification et l'exécution.,Autorise le planificateur de requête et l'exécuteur à comparer les limites des partitions avec les conditions des requêtes pour déterminer les partitions à parcourir.,user,bool,default,,,,on,on,,,false
+enable_partitionwise_aggregate,off,,Optimisation des requêtes / Configuration de la méthode du planificateur,Active les agrégations et regroupements par partition.,,user,bool,default,,,,off,off,,,false
+enable_partitionwise_join,off,,Optimisation des requêtes / Configuration de la méthode du planificateur,Active l'utilisation de jointures entre partitions.,,user,bool,default,,,,off,off,,,false
+enable_seqscan,on,,Optimisation des requêtes / Configuration de la méthode du planificateur,Active l'utilisation des parcours séquentiels par le planificateur.,,user,bool,default,,,,on,on,,,false
+enable_sort,on,,Optimisation des requêtes / Configuration de la méthode du planificateur,Active l'utilisation des étapes de tris explicites par le planificateur.,,user,bool,default,,,,on,on,,,false
+enable_tidscan,on,,Optimisation des requêtes / Configuration de la méthode du planificateur,Active l'utilisation de plans de parcours TID par le planificateur.,,user,bool,default,,,,on,on,,,false
+escape_string_warning,on,,Compatibilité des versions et des plateformes / Anciennes versions de PostgreSQL,Avertie sur les échappements par antislash dans les chaînes ordinaires.,,user,bool,default,,,,on,on,,,false
+event_source,PostgreSQL,,Rapports et traces / Où tracer,"Initialise le nom de l'application, utilisé pour identifier les messages de
+PostgreSQL dans eventlog.",,postmaster,string,default,,,,PostgreSQL,PostgreSQL,,,false
+exit_on_error,off,,Gestion des erreurs,Termine la session sans erreur.,,user,bool,default,,,,off,off,,,false
+external_pid_file,"",,Emplacement des fichiers,Écrit le PID du postmaster PID dans le fichier spécifié.,,postmaster,string,default,,,,,,,,false
+extra_float_digits,3,,Valeurs par défaut pour les connexions client / Locale et formattage,Initialise le nombre de chiffres affichés pour les valeurs à virgule flottante.,"Ceci affecte les types de données real, double precision et géométriques. Une valeur zéro ou négative du paramètre est ajoutée au nombre standard de chiffres (FLT_DIG ou DBL_DIG comme approprié). Toute valeur plus grande que zéro sélectionne le mode de sortie précis.",user,integer,session,-15,3,,1,2,,,false
+force_parallel_mode,off,,Optimisation des requêtes / Autres options du planificateur,Force l'utilisation des fonctionnalités de requête parallèle.,"Si possible, exécute des requêtes utilisant des processus parallèles et avec les restrictions parallèles.",user,enum,default,,,"{off,on,regress}",off,off,,,false
+from_collapse_limit,8,,Optimisation des requêtes / Autres options du planificateur,"Initialise la taille de la liste FROM en dehors de laquelle les
+sous-requêtes ne sont pas rassemblées.","Le planificateur fusionne les sous-requêtes dans des requêtes supérieures
+si la liste FROM résultante n'a pas plus de ce nombre d'éléments.",user,integer,default,1,2147483647,,8,8,,,false
+fsync,on,,Write-Ahead Log / Paramètrages,Force la synchronisation des mises à jour sur le disque.,"Le serveur utilisera l'appel système fsync() à différents endroits pour
+s'assurer que les mises à jour sont écrites physiquement sur le disque. Ceci
+nous assure qu'un groupe de bases de données se retrouvera dans un état
+cohérent après un arrêt brutal dû au système d'exploitation ou au matériel.",sighup,bool,default,,,,on,on,,,false
+full_page_writes,on,,Write-Ahead Log / Paramètrages,"Écrit des pages complètes dans les WAL lors d'une première modification après
+un point de vérification.","Une page écrite au moment d'un arrêt brutal du système d'exploitation pourrait n'être écrite sur le disque que partiellement. Lors de la récupération, les modifications stockées dans le journal de transaction ne sont pas suffisantes pour terminer la récupération. Cette option écrit les pages lors de la première modification après un checkpoint afin que la récupération complète soit possible.",sighup,bool,default,,,,on,on,,,false
+geqo,on,,Optimisation des requêtes / Optimiseur génétique de requêtes,Active l'optimisation génétique des requêtes.,Cet algorithme essaie de faire une planification sans recherche exhaustive.,user,bool,default,,,,on,on,,,false
+geqo_effort,5,,Optimisation des requêtes / Optimiseur génétique de requêtes,"GEQO : l'effort est utilisé pour initialiser une valeur par défaut pour les
+autres paramètres GEQO.",,user,integer,default,1,10,,5,5,,,false
+geqo_generations,0,,Optimisation des requêtes / Optimiseur génétique de requêtes,GEQO : nombre d'itérations dans l'algorithme.,Zéro sélectionne une valeur par défaut convenable.,user,integer,default,0,2147483647,,0,0,,,false
+geqo_pool_size,0,,Optimisation des requêtes / Optimiseur génétique de requêtes,GEQO : nombre d'individus dans une population.,Zéro sélectionne une valeur par défaut convenable.,user,integer,default,0,2147483647,,0,0,,,false
+geqo_seed,0,,Optimisation des requêtes / Optimiseur génétique de requêtes,GEQO : graine pour la sélection du chemin aléatoire.,,user,real,default,0,1,,0,0,,,false
+geqo_selection_bias,2,,Optimisation des requêtes / Optimiseur génétique de requêtes,GEQO : pression sélective dans la population.,,user,real,default,1.5,2,,2,2,,,false
+geqo_threshold,12,,Optimisation des requêtes / Optimiseur génétique de requêtes,Initialise la limite des éléments FROM en dehors de laquelle GEQO est utilisé.,,user,integer,default,2,2147483647,,12,12,,,false
+gin_fuzzy_search_limit,0,,Valeurs par défaut pour les connexions client / Autres valeurs par défaut,Configure le nombre maximum de résultats lors d'une recherche par GIN.,,user,integer,default,0,2147483647,,0,0,,,false
+gin_pending_list_limit,4096,kB,Valeurs par défaut pour les connexions client / Comportement des instructions,Configure la taille maximale de la pending list d'un index GIN.,,user,integer,default,64,2097151,,4096,4096,,,false
+hba_file,C:/Program Files/PostgreSQL/12/data/pg_hba.conf,,Emplacement des fichiers,Initialise le fichier de configuration « hba » du serveur.,,postmaster,string,override,,,,,C:/Program Files/PostgreSQL/12/data/pg_hba.conf,,,false
+hot_standby,on,,Réplication / Serveurs en attente,Autorise les connexions et les requêtes pendant la restauration.,,postmaster,bool,default,,,,on,on,,,false
+hot_standby_feedback,off,,Réplication / Serveurs en attente,Permet l'envoi d'informations d'un serveur en hot standby vers le serveur principal pour éviter les conflits de requêtes.,,sighup,bool,default,,,,off,off,,,false
+huge_pages,try,,Utilisation des ressources / Mémoire,Utilisation des HugePages sur Linux ou Windows.,,postmaster,enum,default,,,"{off,on,try}",try,try,,,false
+ident_file,C:/Program Files/PostgreSQL/12/data/pg_ident.conf,,Emplacement des fichiers,Initialise le fichier de configuration « ident » du serveur.,,postmaster,string,override,,,,,C:/Program Files/PostgreSQL/12/data/pg_ident.conf,,,false
+idle_in_transaction_session_timeout,0,ms,Valeurs par défaut pour les connexions client / Comportement des instructions,Initialise la durée maximale autorisée pour toute transaction en attente.,Une valeur de 0 désactive le timeout.,user,integer,default,0,2147483647,,0,0,,,false
+ignore_checksum_failure,off,,Options pour le développeur,Continue le traitement après un échec de la somme de contrôle.,"La détection d'une erreur de somme de contrôle a normalement pour effet de rapporter une erreur, annulant la transaction en cours. Régler ignore_checksum_failure à true permet au système d'ignorer cette erreur (mais rapporte toujours un avertissement), et continue le traitement. Ce comportement pourrait causer un arrêt brutal ou d'autres problèmes sérieux. Cela a un effet seulement si les sommes de contrôle (checksums) sont activés.",superuser,bool,default,,,,off,off,,,false
+ignore_system_indexes,off,,Options pour le développeur,Désactive la lecture des index système.,"Cela n'empêche pas la mise à jour des index, donc vous pouvez l'utiliser en
+toute sécurité. La pire conséquence est la lenteur.",backend,bool,default,,,,off,off,,,false
+integer_datetimes,on,,Options pré-configurées,Les types datetime sont basés sur des entiers.,,internal,bool,default,,,,on,on,,,false
+IntervalStyle,postgres,,Valeurs par défaut pour les connexions client / Locale et formattage,Initialise le format d'affichage des valeurs interval.,,user,enum,default,,,"{postgres,postgres_verbose,sql_standard,iso_8601}",postgres,postgres,,,false
+jit,on,,Optimisation des requêtes / Autres options du planificateur,Autorise la compilation JIT.,,user,bool,default,,,,on,on,,,false
+jit_above_cost,100000,,Optimisation des requêtes / Constantes des coûts du planificateur,Effectuer une compilation JIT si la requête est plus coûteuse.,-1 désactive la compilation JIT.,user,real,default,-1,1.79769e+308,,100000,100000,,,false
+jit_debugging_support,off,,Options pour le développeur,Enregister la fonction JIT compilée avec debugueur.,,superuser-backend,bool,default,,,,off,off,,,false
+jit_dump_bitcode,off,,Options pour le développeur,Écrire le bitcode LLVM pour faciliter de débugage JIT.,,superuser,bool,default,,,,off,off,,,false
+jit_expressions,on,,Options pour le développeur,Autorise la compilation JIT des expressions.,,user,bool,default,,,,on,on,,,false
+jit_inline_above_cost,500000,,Optimisation des requêtes / Constantes des coûts du planificateur,Effectuer un inlining JIT si la requête est plus coûteuse.,-1 désactive l'inlining.,user,real,default,-1,1.79769e+308,,500000,500000,,,false
+jit_optimize_above_cost,500000,,Optimisation des requêtes / Constantes des coûts du planificateur,Optimise les fonctions JITées si la requête est plus coûteuse.,-1 désactive l'optimisation.,user,real,default,-1,1.79769e+308,,500000,500000,,,false
+jit_profiling_support,off,,Options pour le développeur,Enregistrer la fonction compilée JIT avec le profiler perf.,,superuser-backend,bool,default,,,,off,off,,,false
+jit_provider,llvmjit,,Valeurs par défaut pour les connexions des clients / Préchargement des bibliothèques partagées,Fournisseur JIT à utiliser.,,postmaster,string,default,,,,llvmjit,llvmjit,,,false
+jit_tuple_deforming,on,,Options pour le développeur,Autorise la compilation JIT de la décomposition des lignes.,,user,bool,default,,,,on,on,,,false
+join_collapse_limit,8,,Optimisation des requêtes / Autres options du planificateur,"Initialise la taille de la liste FROM en dehors de laquelle les contructions
+JOIN ne sont pas aplanies.","La planificateur applanira les constructions JOIN explicites dans des listes
+d'éléments FROM lorsqu'une liste d'au plus ce nombre d'éléments en
+résulterait.",user,integer,default,1,2147483647,,8,8,,,false
+krb_caseins_users,off,,Connexions et authentification / Authentification,"Indique si les noms d'utilisateurs Kerberos et GSSAPI devraient être traités
+sans se soucier de la casse.",,sighup,bool,default,,,,off,off,,,false
+krb_server_keyfile,"",,Connexions et authentification / Authentification,Initalise l'emplacement du fichier de la clé serveur pour Kerberos.,,sighup,string,default,,,,"","",,,false
+lc_collate,French_France.1252,,Valeurs par défaut pour les connexions client / Locale et formattage,Affiche la locale de tri et de groupement.,,internal,string,override,,,,C,French_France.1252,,,false
+lc_ctype,French_France.1252,,Valeurs par défaut pour les connexions client / Locale et formattage,Affiche la classification des caractères et la locale de conversions.,,internal,string,override,,,,C,French_France.1252,,,false
+lc_messages,French_France.1252,,Valeurs par défaut pour les connexions client / Locale et formattage,Initialise le langage dans lequel les messages sont affichés.,,superuser,string,configuration file,,,,"",French_France.1252,C:/Program Files/PostgreSQL/12/data/postgresql.conf,665,false
+lc_monetary,French_France.1252,,Valeurs par défaut pour les connexions client / Locale et formattage,Initialise la locale pour le formattage des montants monétaires.,,user,string,configuration file,,,,C,French_France.1252,C:/Program Files/PostgreSQL/12/data/postgresql.conf,667,false
+lc_numeric,French_France.1252,,Valeurs par défaut pour les connexions client / Locale et formattage,Initialise la locale pour formater les nombres.,,user,string,configuration file,,,,C,French_France.1252,C:/Program Files/PostgreSQL/12/data/postgresql.conf,668,false
+lc_time,French_France.1252,,Valeurs par défaut pour les connexions client / Locale et formattage,Initialise la locale pour formater les valeurs date et time.,,user,string,configuration file,,,,C,French_France.1252,C:/Program Files/PostgreSQL/12/data/postgresql.conf,669,false
+listen_addresses,*,,Connexions et authentification / Paramètrages de connexion,Initialise le nom de l'hôte ou l'adresse IP à écouter.,,postmaster,string,configuration file,,,,localhost,*,C:/Program Files/PostgreSQL/12/data/postgresql.conf,59,false
+lo_compat_privileges,off,,Compatibilité des versions et des plateformes / Anciennes versions de PostgreSQL,"Active la compatibilité ascendante pour la vérification des droits sur les
+Large Objects.","Ignore la vérification des droits lors de la lecture et de la modification
+des Larges Objects, pour la compatibilité avec les versions antérieures à la
+9.0.",superuser,bool,default,,,,off,off,,,false
+local_preload_libraries,"",,Valeurs par défaut pour les connexions des clients / Préchargement des bibliothèques partagées,Liste les bibliothèques partagées non privilégiées à précharger dans chaque processus serveur.,,user,string,default,,,,"","",,,false
+lock_timeout,0,ms,Valeurs par défaut pour les connexions client / Comportement des instructions,Initialise la durée maximum permise pour toute attente d'un verrou.,Une valeur de 0 désactive le timeout.,user,integer,default,0,2147483647,,0,0,,,false
+log_autovacuum_min_duration,-1,ms,Rapports et traces / Que tracer,"Initialise le temps d'exécution minimum au-dessus duquel les actions
+autovacuum seront tracées.",Zéro affiche toutes les requêtes. -1 désactive cette fonctionnalité.,sighup,integer,default,-1,2147483647,,-1,-1,,,false
+log_checkpoints,off,,Rapports et traces / Que tracer,Trace tous les points de vérification.,,sighup,bool,default,,,,off,off,,,false
+log_connections,off,,Rapports et traces / Que tracer,Trace toutes les connexions réussies.,,superuser-backend,bool,default,,,,off,off,,,false
+log_destination,stderr,,Rapports et traces / Où tracer,Initialise la destination des journaux applicatifs du serveur.,"Les valeurs valides sont une combinaison de « stderr », « syslog »,
+« csvlog » et « eventlog », suivant la plateforme.",sighup,string,configuration file,,,,stderr,stderr,C:/Program Files/PostgreSQL/12/data/postgresql.conf,419,false
+log_directory,log,,Rapports et traces / Où tracer,Initialise le répertoire de destination pour les journaux applicatifs.,Accepte un chemin relatif ou absolu pour le répertoire des données.,sighup,string,default,,,,log,log,,,false
+log_disconnections,off,,Rapports et traces / Que tracer,"Trace la fin d'une session, avec sa durée.",,superuser-backend,bool,default,,,,off,off,,,false
+log_duration,off,,Rapports et traces / Que tracer,Trace la durée de chaque instruction SQL terminée.,,superuser,bool,default,,,,off,off,,,false
+log_error_verbosity,default,,Rapports et traces / Que tracer,Initialise la verbosité des messages tracés.,,superuser,enum,default,,,"{terse,default,verbose}",default,default,,,false
+log_executor_stats,off,,Statistiques / Surveillance,"Écrit les statistiques de performance de l'exécuteur dans les journaux applicatifs
+du serveur.",,superuser,bool,default,,,,off,off,,,false
+log_file_mode,0640,,Rapports et traces / Où tracer,Initialise les droits des fichiers de trace.,"La valeur du paramètre est attendue dans le format numérique du mode accepté
+par les appels système chmod et umask (pour utiliser le format octal
+personnalisé, le numéro doit commencer par un zéro).",sighup,integer,configuration file,0,511,,384,416,C:/Program Files/PostgreSQL/12/data/postgresql.conf,435,false
+log_filename,postgresql-%Y-%m-%d_%H%M%S.log,,Rapports et traces / Où tracer,Initialise le modèle de nom de fichiers pour les journaux applicatifs.,,sighup,string,default,,,,postgresql-%Y-%m-%d_%H%M%S.log,postgresql-%Y-%m-%d_%H%M%S.log,,,false
+log_hostname,off,,Rapports et traces / Que tracer,Trace le nom d'hôte dans les traces de connexion.,"Par défaut, une connexion ne trace que l'adresse IP de l'hôte se connectant. Si vous voulez que s'affiche le nom de l'hôte, vous pouvez activer cette option mais, selon la configuration de la résolution de noms de votre hôte, cela peut imposer un coût en performances non négligeable.",sighup,bool,default,,,,off,off,,,false
+log_line_prefix,%m [%p] ,,Rapports et traces / Que tracer,Contrôle l'information préfixée sur chaque ligne de trace.,"Si vide, aucun préfixe n'est utilisé.",sighup,string,default,,,,%m [%p] ,%m [%p] ,,,false
+log_lock_waits,off,,Rapports et traces / Que tracer,Trace les attentes longues de verrou.,,superuser,bool,default,,,,off,off,,,false
+log_min_duration_statement,-1,ms,Rapports et traces / Quand tracer,"Initialise le temps d'exécution minimum au-dessus de lequel les instructions
+seront tracées.",Zéro affiche toutes les requêtes. -1 désactive cette fonctionnalité.,superuser,integer,default,-1,2147483647,,-1,-1,,,false
+log_min_error_statement,error,,Rapports et traces / Quand tracer,"Génère une trace pour toutes les instructions qui produisent une erreur de
+ce niveau ou de niveaux plus importants.","Chaque niveau inclut les niveaux qui suivent. Plus loin sera le niveau,
+moindre sera le nombre de messages envoyés.",superuser,enum,default,,,"{debug5,debug4,debug3,debug2,debug1,info,notice,warning,error,log,fatal,panic}",error,error,,,false
+log_min_messages,warning,,Rapports et traces / Quand tracer,Initialise les niveaux de messages tracés.,"Chaque niveau inclut les niveaux qui suivent. Plus loin sera le niveau,
+moindre sera le nombre de messages envoyés.",superuser,enum,default,,,"{debug5,debug4,debug3,debug2,debug1,info,notice,warning,error,log,fatal,panic}",warning,warning,,,false
+log_parser_stats,off,,Statistiques / Surveillance,"Écrit les statistiques de performance de l'analyseur dans les journaux applicatifs
+du serveur.",,superuser,bool,default,,,,off,off,,,false
+log_planner_stats,off,,Statistiques / Surveillance,"Écrit les statistiques de performance de planification dans les journaux
+applicatifs du serveur.",,superuser,bool,default,,,,off,off,,,false
+log_replication_commands,off,,Rapports et traces / Que tracer,Trace chaque commande de réplication.,,superuser,bool,default,,,,off,off,,,false
+log_rotation_age,1440,min,Rapports et traces / Où tracer,La rotation automatique des journaux applicatifs s'effectuera toutes les N minutes.,,sighup,integer,default,0,35791394,,1440,1440,,,false
+log_rotation_size,10240,kB,Rapports et traces / Où tracer,La rotation automatique des journaux applicatifs s'effectuera après N kilooctets.,,sighup,integer,default,0,2097151,,10240,10240,,,false
+log_statement,none,,Rapports et traces / Que tracer,Initialise le type d'instructions tracées.,,superuser,enum,default,,,"{none,ddl,mod,all}",none,none,,,false
+log_statement_stats,off,,Statistiques / Surveillance,"Écrit les statistiques de performance cumulatives dans les journaux applicatifs
+du serveur.",,superuser,bool,default,,,,off,off,,,false
+log_temp_files,-1,kB,Rapports et traces / Que tracer,"Trace l'utilisation de fichiers temporaires plus gros que ce nombre de
+kilooctets.","Zéro trace toutes les requêtes. La valeur par défaut est -1 (désactivant
+cette fonctionnalité).",superuser,integer,default,-1,2147483647,,-1,-1,,,false
+log_timezone,GMT,,Rapports et traces / Que tracer,Initialise le fuseau horaire à utiliser pour les journaux applicatifs.,,sighup,string,default,,,,GMT,GMT,,,false
+log_transaction_sample_rate,0,,Rapports et traces / Quand tracer,Définit la fraction des transactions à tracer pour les nouvelles transactions.,Trace tous les ordres d'une fraction des transactions. Utiliser une valeur entre 0.0 (aucune trace) et 1.0 (trace tous les ordres de toutes les transactions).,superuser,real,default,0,1,,0,0,,,false
+log_truncate_on_rotation,off,,Rapports et traces / Où tracer,"Tronque les journaux applicatifs existants du même nom lors de la rotation
+des journaux applicatifs.",,sighup,bool,default,,,,off,off,,,false
+logging_collector,on,,Rapports et traces / Où tracer,"Lance un sous-processus pour capturer la sortie d'erreurs (stderr) et/ou
+csvlogs dans des journaux applicatifs.",,postmaster,bool,configuration file,,,,off,on,C:/Program Files/PostgreSQL/12/data/postgresql.conf,425,false
+maintenance_work_mem,65536,kB,Utilisation des ressources / Mémoire,Initialise la mémoire maximum utilisée pour les opérations de maintenance.,Ceci inclut les opérations comme VACUUM et CREATE INDEX.,user,integer,default,1024,2097151,,65536,65536,,,false
+max_connections,100,,Connexions et authentification / Paramètrages de connexion,Nombre maximum de connexions simultanées.,,postmaster,integer,configuration file,1,262143,,100,100,C:/Program Files/PostgreSQL/12/data/postgresql.conf,64,false
+max_files_per_process,1000,,Utilisation des ressources / Ressources noyau,"Initialise le nombre maximum de fichiers ouverts simultanément pour chaque
+processus serveur.",,postmaster,integer,default,25,2147483647,,1000,1000,,,false
+max_function_args,100,,Options pré-configurées,Affiche le nombre maximum d'arguments de fonction.,,internal,integer,default,100,100,,100,100,,,false
+max_identifier_length,63,,Options pré-configurées,Affiche la longueur maximum d'un identifiant.,,internal,integer,default,63,63,,63,63,,,false
+max_index_keys,32,,Options pré-configurées,Affiche le nombre maximum de clés d'index.,,internal,integer,default,32,32,,32,32,,,false
+max_locks_per_transaction,64,,Gestion des verrous,Initialise le nombre maximum de verrous par transaction.,"La table des verrous partagés est dimensionnée sur l'idée qu'au plus
+max_locks_per_transaction * max_connections objets distincts auront besoin
+d'être verrouillés à tout moment.",postmaster,integer,default,10,2147483647,,64,64,,,false
+max_logical_replication_workers,4,,Réplication / Abonnés,Nombre maximum de processus workers de réplication logique.,,postmaster,integer,default,0,262143,,4,4,,,false
+max_parallel_maintenance_workers,2,,Utilisation des ressources / Comportement asynchrone,Initialise le nombre maximum de processus parallèles par opération de maintenance.,,user,integer,default,0,1024,,2,2,,,false
+max_parallel_workers,8,,Utilisation des ressources / Comportement asynchrone,Configure le nombre maximum de processus parallélisés pouvant être actifs en même temps.,,user,integer,default,0,1024,,8,8,,,false
+max_parallel_workers_per_gather,2,,Utilisation des ressources / Comportement asynchrone,Initialise le nombre maximum de processus parallèles par nœud d'exécution.,,user,integer,default,0,1024,,2,2,,,false
+max_pred_locks_per_page,2,,Gestion des verrous,Initialise le nombre maximum de lignes verrouillées avec prédicat par transaction.,"Si plus que ce nombre de lignes sur la même page sont verrouillées par une connexion, ces verrous sont remplacés par un verrou de niveau de page.",sighup,integer,default,0,2147483647,,2,2,,,false
+max_pred_locks_per_relation,-2,,Gestion des verrous,Initialise le nombre maximum de pages et lignes verrouillées avec prédicats par transaction.,"Si plus que ce nombre de pages et lignes dans la même relation sont verrouillées par une connexion, ces verrous sont remplacés par un verrou de niveau relation.",sighup,integer,default,-2147483648,2147483647,,-2,-2,,,false
+max_pred_locks_per_transaction,64,,Gestion des verrous,Initialise le nombre maximum de verrous prédicats par transaction.,"La table des verrous de prédicat partagés est dimensionnée sur l'idée qu'au plus
+max_pred_locks_per_transaction * max_connections objets distincts auront besoin
+d'être verrouillés à tout moment.",postmaster,integer,default,10,2147483647,,64,64,,,false
+max_prepared_transactions,0,,Utilisation des ressources / Mémoire,Initialise le nombre maximum de transactions préparées simultanément.,,postmaster,integer,default,0,262143,,0,0,,,false
+max_replication_slots,10,,Réplication / Serveurs d'envoi,Initialise le nombre maximum de slots de réplication définis simultanément.,,postmaster,integer,default,0,262143,,10,10,,,false
+max_stack_depth,2048,kB,Utilisation des ressources / Mémoire,"Initialise la profondeur maximale de la pile, en Ko.",,superuser,integer,environment variable,100,2097151,,100,2048,,,false
+max_standby_archive_delay,30000,ms,Réplication / Serveurs en attente,Définit le délai maximum avant d'annuler les requêtes lorsqu'un serveur « hot standby » traite les données des journaux de transactions archivés,,sighup,integer,default,-1,2147483647,,30000,30000,,,false
+max_standby_streaming_delay,30000,ms,Réplication / Serveurs en attente,"Initialise le délai maximum avant d'annuler les requêtes lorsqu'un serveur en
+hotstandby traite les données des journaux de transactions envoyés en flux.",,sighup,integer,default,-1,2147483647,,30000,30000,,,false
+max_sync_workers_per_subscription,2,,Réplication / Abonnés,Nombre maximum de workers de synchronisation par souscription.,,sighup,integer,default,0,262143,,2,2,,,false
+max_wal_senders,10,,Réplication / Serveurs d'envoi,"Initialise le nombre maximum de processus d'envoi des journaux de transactions
+exécutés simultanément.",,postmaster,integer,default,0,262143,,10,10,,,false
+max_wal_size,1024,MB,Write-Ahead Log / Points de vérification (Checkpoints),Initialise la volumétrie de journaux de transaction qui déclenche un checkpoint.,,sighup,integer,configuration file,2,2097151,,1024,1024,C:/Program Files/PostgreSQL/12/data/postgresql.conf,224,false
+max_worker_processes,8,,Utilisation des ressources / Comportement asynchrone,Nombre maximum de background workers simultanés.,,postmaster,integer,default,0,262143,,8,8,,,false
+min_parallel_index_scan_size,64,8kB,Optimisation des requêtes / Constantes des coûts du planificateur,Configure la quantité minimale de données d'index pour un parcours parallèle.,"Si le planificateur estime qu'il lira un nombre de blocs d'index trop petit pour atteindre cette limite, un parcours parallèle ne sera pas considéré.",user,integer,default,0,715827882,,64,64,,,false
+min_parallel_table_scan_size,1024,8kB,Optimisation des requêtes / Constantes des coûts du planificateur,Configure la quantité minimale de données de table pour un parcours parallèle.,"Si le planificateur estime qu'il lira un nombre de blocs de table trop petit pour atteindre cette limite, un parcours parallèle ne sera pas considéré.",user,integer,default,0,715827882,,1024,1024,,,false
+min_wal_size,80,MB,Write-Ahead Log / Points de vérification (Checkpoints),Initialise la taille minimale à laquelle réduire l'espace des journaux de transaction.,,sighup,integer,configuration file,2,2097151,,80,80,C:/Program Files/PostgreSQL/12/data/postgresql.conf,225,false
+old_snapshot_threshold,-1,min,Utilisation des ressources / Comportement asynchrone,Temps à partir duquel un snapshot est trop ancien pour lire des pages ayant changées après que le snapshot ait été effectué.,Une valeur de -1 désactive cette fonctionnalité.,postmaster,integer,default,-1,86400,,-1,-1,,,false
+operator_precedence_warning,off,,Compatibilité des versions et des plateformes / Anciennes versions de PostgreSQL,Émet un avertissement pour les constructions dont la signification a changé depuis PostgreSQL 9.4.,,user,bool,default,,,,off,off,,,false
+parallel_leader_participation,on,,Utilisation des ressources / Comportement asynchrone,Controle si les nœuds Gather et Gather Merge doivent également exécuter des sous-plans.,"Est-ce que les nœuds Gather devrait également exécuter des sous-plans, ou juste receuiller des lignes ?",user,bool,default,,,,on,on,,,false
+parallel_setup_cost,1000,,Optimisation des requêtes / Constantes des coûts du planificateur,Initialise l'estimation du planificateur pour le coût de démarrage des processus d'exécution de requêtes parallèles.,,user,real,default,0,1.79769e+308,,1000,1000,,,false
+parallel_tuple_cost,0.1,,Optimisation des requêtes / Constantes des coûts du planificateur,Initialise l'estimation du planificateur pour le coût de passage de chaque ligne d'un processus fils vers le processus maître.,,user,real,default,0,1.79769e+308,,0.1,0.1,,,false
+password_encryption,md5,,Connexions et authentification / Authentification,Chiffre les mots de passe.,"Lorsqu'un mot de passe est spécifié dans CREATE USER ou ALTER USER sans
+indiquer ENCRYPTED ou UNENCRYPTED, ce paramètre détermine si le mot de passe
+doit être chiffré.",user,enum,default,,,"{md5,scram-sha-256}",md5,md5,,,false
+plan_cache_mode,auto,,Optimisation des requêtes / Autres options du planificateur,Contrôle le choix par le planificateur du plan personnalisé ou du plan générique.,"Les requêtes préparées peuvent avoir des plans particulier et générique, et le planificateur tentera de choisir le meilleur. Ceci peut être utilisé pour remplacer le comportement par défaut.",user,enum,default,,,"{auto,force_generic_plan,force_custom_plan}",auto,auto,,,false
+port,5432,,Connexions et authentification / Paramètrages de connexion,Port TCP sur lequel le serveur écoutera.,,postmaster,integer,configuration file,1,65535,,5432,5432,C:/Program Files/PostgreSQL/12/data/postgresql.conf,63,false
+post_auth_delay,0,s,Options pour le développeur,Attends N secondes après l'authentification.,Ceci permet d'attacher un débogueur au processus.,backend,integer,default,0,2147,,0,0,,,false
+pre_auth_delay,0,s,Options pour le développeur,Attends N secondes au lancement de la connexion avant l'authentification.,Ceci permet d'attacher un débogueur au processus.,sighup,integer,default,0,60,,0,0,,,false
+primary_conninfo,"",,Réplication / Serveurs en attente,Définit la chaîne de connexion à utiliser pour se connecter au serveur émetteur.,,postmaster,string,default,,,,"","",,,false
+primary_slot_name,"",,Réplication / Serveurs en attente,Définit le nom du slot de réplication à utiliser sur le serveur émetteur.,,postmaster,string,default,,,,"","",,,false
+promote_trigger_file,"",,Réplication / Serveurs en attente,Définit un nom de fichier dont la présence termine la restauration du serveur secondaire.,,sighup,string,default,,,,"","",,,false
+quote_all_identifiers,off,,Compatibilité des versions et des plateformes / Anciennes versions de PostgreSQL,"Lors de la génération des rragments SQL, mettre entre guillemets tous les identifiants.",,user,bool,default,,,,off,off,,,false
+random_page_cost,4,,Optimisation des requêtes / Constantes des coûts du planificateur,"Initialise l'estimation du plnnificateur pour le coût d'une page disque
+récupérée non séquentiellement.",,user,real,default,0,1.79769e+308,,4,4,,,false
+recovery_end_command,"",,Write-Ahead Log / Restauration d'archive,Définit la commande shell qui sera appelée une fois à la fin de la restauration.,,sighup,string,default,,,,"","",,,false
+recovery_min_apply_delay,0,ms,Réplication / Serveurs en attente,Définit la durée minimale pour appliquer des changements lors de la restauration.,,sighup,integer,default,0,2147483647,,0,0,,,false
+recovery_target,"",,Write-Ahead Log / Cible de restauration,Positionner à « immediate » pour arrêter la restauration dès qu'un état consistent est atteint.,,postmaster,string,default,,,,"","",,,false
+recovery_target_action,pause,,Write-Ahead Log / Cible de restauration,Définit l'action à exécuter à l'arrivée à la cible de la restauration.,,postmaster,enum,default,,,"{pause,promote,shutdown}",pause,pause,,,false
+recovery_target_inclusive,on,,Write-Ahead Log / Cible de restauration,Définit s'il faut inclure ou exclure la transaction de la cible de restauration.,,postmaster,bool,default,,,,on,on,,,false
+recovery_target_lsn,"",,Write-Ahead Log / Cible de restauration,Définit le LSN des journaux de transactions jusqu'où la restauration s'effectuera.,,postmaster,string,default,,,,"","",,,false
+recovery_target_name,"",,Write-Ahead Log / Cible de restauration,Définit le point de restauration nommé jusqu'où la restauration va procéder.,,postmaster,string,default,,,,"","",,,false
+recovery_target_time,"",,Write-Ahead Log / Cible de restauration,Définit le point dans le temps jusqu'où la restauration s'effectuera.,,postmaster,string,default,,,,"","",,,false
+recovery_target_timeline,latest,,Write-Ahead Log / Cible de restauration,Définit la timeline cible de la restauration.,,postmaster,string,default,,,,latest,latest,,,false
+recovery_target_xid,"",,Write-Ahead Log / Cible de restauration,Définit l'identifiant de transaction jusqu'où la restauration s'effectuera.,,postmaster,string,default,,,,"","",,,false
+restart_after_crash,on,,Gestion des erreurs,Réinitialisation du serveur après un arrêt brutal d'un processus serveur.,,sighup,bool,default,,,,on,on,,,false
+restore_command,"",,Write-Ahead Log / Restauration d'archive,Définit la commande shell qui sera appelée pour récupérer un fichier WAL archivé.,,postmaster,string,default,,,,"","",,,false
+row_security,on,,Valeurs par défaut pour les connexions client / Comportement des instructions,Active la sécurité niveau ligne.,"Lorsqu'il est activé, le mode de sécurité niveau ligne sera appliqué à tous les utilisateurs.",user,bool,default,,,,on,on,,,false
+search_path,"""$user"", public",,Valeurs par défaut pour les connexions client / Comportement des instructions,"Initialise l'ordre de recherche des schémas pour les noms qui ne précisent
+pas le schéma.",,user,string,default,,,,"""$user"", public","""$user"", public",,,false
+segment_size,131072,8kB,Options pré-configurées,Affiche le nombre de pages par fichier.,,internal,integer,default,131072,131072,,131072,131072,,,false
+seq_page_cost,1,,Optimisation des requêtes / Constantes des coûts du planificateur,"Initialise l'estimation du planificateur pour le coût d'une page disque
+récupérée séquentiellement.",,user,real,default,0,1.79769e+308,,1,1,,,false
+server_encoding,UTF8,,Valeurs par défaut pour les connexions client / Locale et formattage,Initialise le codage des caractères pour le serveur (base de données).,,internal,string,override,,,,SQL_ASCII,UTF8,,,false
+server_version,12.3,,Options pré-configurées,Affiche la version du serveur.,,internal,string,default,,,,12.3,12.3,,,false
+server_version_num,120003,,Options pré-configurées,Affiche la version du serveur sous la forme d'un entier.,,internal,integer,default,120003,120003,,120003,120003,,,false
+session_preload_libraries,"",,Valeurs par défaut pour les connexions des clients / Préchargement des bibliothèques partagées,Liste les bibliothèques partagées à précharger dans chaque processus serveur.,,superuser,string,default,,,,"","",,,false
+session_replication_role,origin,,Valeurs par défaut pour les connexions client / Comportement des instructions,"Configure le comportement des sessions pour les triggers et les règles de
+ré-écriture.",,superuser,enum,default,,,"{origin,replica,local}",origin,origin,,,false
+shared_buffers,16384,8kB,Utilisation des ressources / Mémoire,Nombre de tampons en mémoire partagée utilisé par le serveur.,,postmaster,integer,configuration file,16,1073741823,,1024,16384,C:/Program Files/PostgreSQL/12/data/postgresql.conf,121,false
+shared_memory_type,windows,,Utilisation des ressources / Mémoire,Sélectionne l'implémentation de mémoire partagée utilisée pour la principale région de mémoire partagée.,,postmaster,enum,default,,,{windows},windows,windows,,,false
+shared_preload_libraries,"",,Valeurs par défaut pour les connexions des clients / Préchargement des bibliothèques partagées,Liste les bibliothèques partagées à précharger dans le serveur.,,postmaster,string,default,,,,"","",,,false
+ssl,off,,Connexions et authentification / SSL,Active les connexions SSL.,,sighup,bool,default,,,,off,off,,,false
+ssl_ca_file,"",,Connexions et authentification / SSL,Emplacement du fichier du certificat autorité SSL.,,sighup,string,default,,,,"","",,,false
+ssl_cert_file,server.crt,,Connexions et authentification / SSL,Emplacement du fichier du certificat serveur SSL.,,sighup,string,default,,,,server.crt,server.crt,,,false
+ssl_ciphers,HIGH:MEDIUM:+3DES:!aNULL,,Connexions et authentification / SSL,Initialise la liste des chiffrements SSL autorisés.,,sighup,string,default,,,,HIGH:MEDIUM:+3DES:!aNULL,HIGH:MEDIUM:+3DES:!aNULL,,,false
+ssl_crl_file,"",,Connexions et authentification / SSL,Emplacement du fichier de liste de révocation des certificats SSL.,,sighup,string,default,,,,"","",,,false
+ssl_dh_params_file,"",,Connexions et authentification / SSL,Emplacement du fichier des paramètres DH SSL.,,sighup,string,default,,,,"","",,,false
+ssl_ecdh_curve,prime256v1,,Connexions et authentification / SSL,Initialise la courbe à utiliser pour ECDH.,,sighup,string,default,,,,prime256v1,prime256v1,,,false
+ssl_key_file,server.key,,Connexions et authentification / SSL,Emplacement du fichier de la clé privée SSL du serveur.,,sighup,string,default,,,,server.key,server.key,,,false
+ssl_library,OpenSSL,,Options pré-configurées,Nom de la librairie SSL.,,internal,string,default,,,,OpenSSL,OpenSSL,,,false
+ssl_max_protocol_version,"",,Connexions et authentification / SSL,Définit la version maximum du protocole SSL/TLS à utiliser.,,sighup,enum,default,,,"{,TLSv1,TLSv1.1,TLSv1.2,TLSv1.3}","","",,,false
+ssl_min_protocol_version,TLSv1,,Connexions et authentification / SSL,Définit la version minimale du protocole SSL/TLS à utiliser.,,sighup,enum,default,,,"{TLSv1,TLSv1.1,TLSv1.2,TLSv1.3}",TLSv1,TLSv1,,,false
+ssl_passphrase_command,"",,Connexions et authentification / SSL,Commande pour obtenir la phrase de passe pour SSL.,,sighup,string,default,,,,"","",,,false
+ssl_passphrase_command_supports_reload,off,,Connexions et authentification / SSL,Utilise également ssl_passphrase_command durant le rechargement du serveur.,,sighup,bool,default,,,,off,off,,,false
+ssl_prefer_server_ciphers,on,,Connexions et authentification / SSL,Donne la priorité à l'ordre des chiffrements du serveur.,,sighup,bool,default,,,,on,on,,,false
+standard_conforming_strings,on,,Compatibilité des versions et des plateformes / Anciennes versions de PostgreSQL,Fait que les chaînes '...' traitent les antislashs littéralement.,,user,bool,default,,,,on,on,,,false
+statement_timeout,0,ms,Valeurs par défaut pour les connexions client / Comportement des instructions,Initialise la durée maximum permise pour toute instruction.,Une valeur de 0 désactive le timeout.,user,integer,default,0,2147483647,,0,0,,,false
+stats_temp_directory,pg_stat_tmp,,Statistiques / Récupérateur des statistiques sur les requêtes et sur les index,Écrit les fichiers statistiques temporaires dans le répertoire indiqué.,,sighup,string,default,,,,pg_stat_tmp,pg_stat_tmp,,,false
+superuser_reserved_connections,3,,Connexions et authentification / Paramètrages de connexion,Nombre de connexions réservées aux super-utilisateurs.,,postmaster,integer,default,0,262143,,3,3,,,false
+synchronize_seqscans,on,,Compatibilité des versions et des plateformes / Anciennes versions de PostgreSQL,Active l'utilisation des parcours séquentiels synchronisés.,,user,bool,default,,,,on,on,,,false
+synchronous_commit,on,,Write-Ahead Log / Paramètrages,Initialise le niveau d'isolation de la transaction courante.,,user,enum,default,,,"{local,remote_write,remote_apply,on,off}",on,on,,,false
+synchronous_standby_names,"",,Réplication / Serveur maître,Nombre de standbys synchrones et liste des noms des synchrones potentiels.,,sighup,string,default,,,,"","",,,false
+syslog_facility,none,,Rapports et traces / Où tracer,"Initialise le niveau (« facility ») de syslog à utilisé lors de l'activation
+de syslog.",,sighup,enum,default,,,{none},none,none,,,false
+syslog_ident,postgres,,Rapports et traces / Où tracer,"Initialise le nom du programme utilisé pour identifier les messages de
+PostgreSQL dans syslog.",,sighup,string,default,,,,postgres,postgres,,,false
+syslog_sequence_numbers,on,,Rapports et traces / Où tracer,Ajoute un numéro de séquence aux messages syslog pour éviter des suppressions de doublons.,,sighup,bool,default,,,,on,on,,,false
+syslog_split_messages,on,,Rapports et traces / Où tracer,Sépare les messages envoyés à syslog par lignes afin de les faire tenir dans 1024 octets.,,sighup,bool,default,,,,on,on,,,false
+tcp_keepalives_count,0,,Valeurs par défaut pour les connexions client / Autres valeurs par défaut,Nombre maximum de retransmissions de « TCP keepalive ».,"Ceci contrôle le nombre de retransmissions keepalive consécutives qui
+peuvent être perdues avant qu'une connexion ne soit considérée morte. Une
+valeur de 0 utilise la valeur par défaut du système.",user,integer,default,0,2147483647,,0,0,,,false
+tcp_keepalives_idle,-1,s,Valeurs par défaut pour les connexions client / Autres valeurs par défaut,Secondes entre l'exécution de « TCP keepalives ».,Une valeur de 0 utilise la valeur par défaut du système.,user,integer,default,0,2147483647,,0,0,,,false
+tcp_keepalives_interval,-1,s,Valeurs par défaut pour les connexions client / Autres valeurs par défaut,Secondes entre les retransmissions de « TCP keepalive ».,Une valeur de 0 utilise la valeur par défaut du système.,user,integer,default,0,2147483647,,0,0,,,false
+tcp_user_timeout,0,ms,Valeurs par défaut pour les connexions client / Autres valeurs par défaut,Délai d'attente maximal TCP utilisateur.,Une valeur de 0 utilise la valeur par défaut du système.,user,integer,default,0,2147483647,,0,0,,,false
+temp_buffers,1024,8kB,Utilisation des ressources / Mémoire,Nombre maximum de tampons en mémoire partagée utilisés par chaque session.,,user,integer,default,100,1073741823,,1024,1024,,,false
+temp_file_limit,-1,kB,Utilisation des ressources / Disques,Limite la taille totale de tous les fichiers temporaires utilisés par chaque processus.,-1 signifie sans limite.,superuser,integer,default,-1,2147483647,,-1,-1,,,false
+temp_tablespaces,"",,Valeurs par défaut pour les connexions client / Comportement des instructions,"Initialise le(s) tablespace(s) à utiliser pour les tables temporaires et les
+fichiers de tri.",,user,string,default,,,,"","",,,false
+TimeZone,UTC,,Valeurs par défaut pour les connexions client / Locale et formattage,Initialise la zone horaire pour afficher et interpréter les dates/heures.,,user,string,client,,,,GMT,UTC,,,false
+timezone_abbreviations,Default,,Valeurs par défaut pour les connexions client / Locale et formattage,Sélectionne un fichier contenant les abréviations des fuseaux horaires.,,user,string,default,,,,,Default,,,false
+trace_notify,off,,Options pour le développeur,Génère une sortie de débogage pour LISTEN et NOTIFY.,,user,bool,default,,,,off,off,,,false
+trace_recovery_messages,log,,Options pour le développeur,Active les traces sur les informations de débogage relatives à la restauration.,"Chaque niveau inclut les niveaux qui suivent. Plus loin sera le niveau,
+moindre sera le nombre de messages envoyés.",sighup,enum,default,,,"{debug5,debug4,debug3,debug2,debug1,log,notice,warning,error}",log,log,,,false
+trace_sort,off,,Options pour le développeur,Émet des informations sur l'utilisation des ressources lors d'un tri.,,user,bool,default,,,,off,off,,,false
+track_activities,on,,Statistiques / Récupérateur des statistiques sur les requêtes et sur les index,Récupère les statistiques sur les commandes en exécution.,"Active la récupération d'informations sur la commande en cours d'exécution
+pour chaque session, avec l'heure de début de l'exécution de la commande.",superuser,bool,default,,,,on,on,,,false
+track_activity_query_size,1024,B,Utilisation des ressources / Mémoire,"Configure la taille réservée pour pg_stat_activity.query, en octets.",,postmaster,integer,default,100,102400,,1024,1024,,,false
+track_commit_timestamp,off,,Réplication,Récupère l'horodatage de la validation de la transaction.,,postmaster,bool,default,,,,off,off,,,false
+track_counts,on,,Statistiques / Récupérateur des statistiques sur les requêtes et sur les index,Récupère les statistiques sur l'activité de la base de données.,,superuser,bool,default,,,,on,on,,,false
+track_functions,none,,Statistiques / Récupérateur des statistiques sur les requêtes et sur les index,Récupère les statistiques niveau fonction sur l'activité de la base de données.,,superuser,enum,default,,,"{none,pl,all}",none,none,,,false
+track_io_timing,off,,Statistiques / Récupérateur des statistiques sur les requêtes et sur les index,Récupère les statistiques d'horodatage sur l'activité en entrées/sorties de la base de données.,,superuser,bool,default,,,,off,off,,,false
+transaction_deferrable,off,,Valeurs par défaut pour les connexions client / Comportement des instructions,"S'il faut repousser une transaction sérialisable en lecture seule jusqu'à ce qu'elle
+puisse être exécutée sans échecs possibles de sérialisation.",,user,bool,override,,,,off,off,,,false
+transaction_isolation,read committed,,Valeurs par défaut pour les connexions client / Comportement des instructions,Initialise le niveau d'isolation de la transaction courante.,,user,enum,override,,,"{serializable,repeatable read,read committed,read uncommitted}",read committed,read committed,,,false
+transaction_read_only,off,,Valeurs par défaut pour les connexions client / Comportement des instructions,Affiche le statut de lecture seule de la transaction actuelle.,,user,bool,override,,,,off,off,,,false
+transform_null_equals,off,,Compatibilité des versions et des plateformes / Anciennes plateformes et anciens clients,Traite « expr=NULL » comme « expr IS NULL ».,"Une fois activé, les expressions de la forme expr = NULL (ou NULL = expr)
+sont traitées comme expr IS NULL, c'est-à-dire qu'elles renvoient true si
+l'expression est évaluée comme étant NULL et false sinon. Le comportement
+correct de expr = NULL est de toujours renvoyer NULL (inconnu).",user,bool,default,,,,off,off,,,false
+unix_socket_directories,"",,Connexions et authentification / Paramètrages de connexion,Initialise les répertoires où les sockets de domaine Unix seront créés.,,postmaster,string,default,,,,"","",,,false
+unix_socket_group,"",,Connexions et authentification / Paramètrages de connexion,Initialise le groupe d'appartenance du socket domaine Unix.,Le propriétaire du socket est toujours l'utilisateur qui a lancé le serveur.,postmaster,string,default,,,,"","",,,false
+unix_socket_permissions,0777,,Connexions et authentification / Paramètrages de connexion,Droits d'accès au socket domaine Unix.,"Les sockets de domaine Unix utilise l'ensemble des droits habituels du système
+de fichiers Unix. La valeur de ce paramètre doit être une spécification en
+mode numérique de la forme acceptée par les appels système chmod et umask
+(pour utiliser le format octal, le nombre doit commencer par un zéro).",postmaster,integer,default,0,511,,511,511,,,false
+update_process_title,off,,Titre du processus,"Met à jour le titre du processus pour indiquer la commande SQL en cours
+d'exécution.","Active la mise à jour du titre du processus chaque fois qu'une nouvelle
+commande SQL est reçue par le serveur.",superuser,bool,default,,,,off,off,,,false
+vacuum_cleanup_index_scale_factor,0.1,,Valeurs par défaut pour les connexions client / Comportement des instructions,"Nombre de lignes insérées avant d'effectuer un nettoyage des index
+(fraction de reltuples).",,user,real,default,0,1e+10,,0.1,0.1,,,false
+vacuum_cost_delay,0,ms,Utilisation des ressources / Délai du VACUUM basé sur le coût,Délai d'un coût de VACUUM en millisecondes.,,user,real,default,0,100,,0,0,,,false
+vacuum_cost_limit,200,,Utilisation des ressources / Délai du VACUUM basé sur le coût,Coût du VACUUM disponible avant un repos.,,user,integer,default,1,10000,,200,200,,,false
+vacuum_cost_page_dirty,20,,Utilisation des ressources / Délai du VACUUM basé sur le coût,Coût d'un VACUUM pour une page modifiée par VACUUM.,,user,integer,default,0,10000,,20,20,,,false
+vacuum_cost_page_hit,1,,Utilisation des ressources / Délai du VACUUM basé sur le coût,Coût d'un VACUUM pour une page trouvée dans le cache du tampon.,,user,integer,default,0,10000,,1,1,,,false
+vacuum_cost_page_miss,10,,Utilisation des ressources / Délai du VACUUM basé sur le coût,Coût d'un VACUUM pour une page introuvable dans le cache du tampon.,,user,integer,default,0,10000,,10,10,,,false
+vacuum_defer_cleanup_age,0,,Réplication / Serveur maître,Nombre de transactions à partir duquel les nettoyages VACUUM et HOT doivent être déferrés.,,sighup,integer,default,0,1000000,,0,0,,,false
+vacuum_freeze_min_age,50000000,,Valeurs par défaut pour les connexions client / Comportement des instructions,Âge minimum à partir duquel VACUUM devra geler une ligne de table.,,user,integer,default,0,1000000000,,50000000,50000000,,,false
+vacuum_freeze_table_age,150000000,,Valeurs par défaut pour les connexions client / Comportement des instructions,Âge à partir duquel VACUUM devra parcourir une table complète pour geler les lignes.,,user,integer,default,0,2000000000,,150000000,150000000,,,false
+vacuum_multixact_freeze_min_age,5000000,,Valeurs par défaut pour les connexions client / Comportement des instructions,Âge minimum à partir duquel VACUUM devra geler un MultiXactId dans une ligne de table.,,user,integer,default,0,1000000000,,5000000,5000000,,,false
+vacuum_multixact_freeze_table_age,150000000,,Valeurs par défaut pour les connexions client / Comportement des instructions,"Âge Multixact à partir duquel VACUUM devra parcourir une table complète pour geler les
+lignes.",,user,integer,default,0,2000000000,,150000000,150000000,,,false
+wal_block_size,8192,,Options pré-configurées,Affiche la taille du bloc dans les journaux de transactions.,,internal,integer,default,8192,8192,,8192,8192,,,false
+wal_buffers,512,8kB,Write-Ahead Log / Paramètrages,"Initialise le nombre de tampons de pages disque dans la mémoire partagée
+pour les journaux de transactions.",,postmaster,integer,override,-1,262143,,-1,512,,,false
+wal_compression,off,,Write-Ahead Log / Paramètrages,Compresse les blocs complets écrits dans les journaux de transactions.,,superuser,bool,default,,,,off,off,,,false
+wal_consistency_checking,"",,Options pour le développeur,Configure les gestionnaires de ressource des WAL pour lesquels des vérifications de cohérence sont effectuées.,Des images complètes de bloc seront tracées pour tous les blocs de données et vérifiées avec le résultat du rejeu des journaux de transactions.,superuser,string,default,,,,"","",,,false
+wal_init_zero,on,,Write-Ahead Log / Paramètrages,Écrit des zéros dans les nouveaux journaux de transaction avant leur première utilisation.,,superuser,bool,default,,,,on,on,,,false
+wal_keep_segments,0,,Réplication / Serveurs d'envoi,Initialise le nombre de journaux de transactions conservés tenus par les seveurs en attente.,,sighup,integer,default,0,2147483647,,0,0,,,false
+wal_level,replica,,Write-Ahead Log / Paramètrages,Configure le niveau des informations écrites dans les journaux de transactions.,,postmaster,enum,default,,,"{minimal,replica,logical}",replica,replica,,,false
+wal_log_hints,off,,Write-Ahead Log / Paramètrages,"Écrit des pages complètes dans les WAL lors d'une première modification après
+un point de vérification, y compris pour des modifications non critiques.",,postmaster,bool,default,,,,off,off,,,false
+wal_receiver_status_interval,10,s,Réplication / Serveurs en attente,Définit l'intervalle maximum entre les rapports du statut du walreceiver au serveur émetteur.,,sighup,integer,default,0,2147483,,10,10,,,false
+wal_receiver_timeout,60000,ms,Réplication / Serveurs en attente,Définit la durée maximale d'attente pour réceptionner des donnés du serveur émetteur.,,sighup,integer,default,0,2147483647,,60000,60000,,,false
+wal_recycle,on,,Write-Ahead Log / Paramètrages,Recycle les journaux de transactions en les renommant.,,superuser,bool,default,,,,on,on,,,false
+wal_retrieve_retry_interval,5000,ms,Réplication / Serveurs en attente,Initalise le temps à attendre avant de retenter de récupérer un WAL après une tentative infructueuse.,,sighup,integer,default,1,2147483647,,5000,5000,,,false
+wal_segment_size,16777216,B,Options pré-configurées,Affiche la taille des journaux de transactions.,,internal,integer,override,1048576,1073741824,,16777216,16777216,,,false
+wal_sender_timeout,60000,ms,Réplication / Serveurs d'envoi,Initialise le temps maximum à attendre pour la réplication des WAL.,,user,integer,default,0,2147483647,,60000,60000,,,false
+wal_sync_method,open_datasync,,Write-Ahead Log / Paramètrages,"Sélectionne la méthode utilisée pour forcer la mise à jour des journaux de
+transactions sur le disque.",,sighup,enum,default,,,"{fsync,fsync_writethrough,open_datasync}",open_datasync,open_datasync,,,false
+wal_writer_delay,200,ms,Write-Ahead Log / Paramètrages,Temps entre les synchronisations des WAL sur disque effectuées par le processus d'écriture des journaux de transaction.,,sighup,integer,default,1,10000,,200,200,,,false
+wal_writer_flush_after,128,8kB,Write-Ahead Log / Paramètrages,Quantité de WAL écrits par le processus d'écriture des journaux de transaction devant déclencher une synchronisation sur disque.,,sighup,integer,default,0,2147483647,,128,128,,,false
+work_mem,4096,kB,Utilisation des ressources / Mémoire,Initialise la mémoire maximum utilisée pour les espaces de travail des requêtes.,"Spécifie la mémoire à utiliser par les opérations de tris internes et par
+les tables de hachage avant de passer sur des fichiers temporaires sur disque.",user,integer,default,64,2097151,,4096,4096,,,false
+xmlbinary,base64,,Valeurs par défaut pour les connexions client / Comportement des instructions,Configure comment les valeurs binaires seront codées en XML.,,user,enum,default,,,"{base64,hex}",base64,base64,,,false
+xmloption,content,,Valeurs par défaut pour les connexions client / Comportement des instructions,"Configure si les données XML dans des opérations d'analyse et de
+sérialisation implicite doivent être considérées comme des documents
+ou des fragments de contenu.",,user,enum,default,,,"{content,document}",content,content,,,false
+zero_damaged_pages,off,,Options pour le développeur,Continue le travail après les en-têtes de page endommagés.,"La détection d'une en-tête de page endommagée cause normalement le rapport
+d'une erreur par PostgreSQL, l'annulation de la transaction en cours.
+Initialiser zero_damaged_pages à true fait que le système ne rapporte qu'un
+message d'attention et continue à travailler. Ce comportement détruira des
+données, notamment toutes les lignes de la page endommagée.",superuser,bool,default,,,,off,off,,,false

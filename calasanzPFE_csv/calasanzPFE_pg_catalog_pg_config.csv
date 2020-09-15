@@ -1,0 +1,23 @@
+BINDIR,C:/PROGRA~1/POSTGR~1/12/bin
+DOCDIR,C:/PROGRA~1/POSTGR~1/12/doc
+HTMLDIR,C:/PROGRA~1/POSTGR~1/12/doc
+INCLUDEDIR,C:/PROGRA~1/POSTGR~1/12/include
+PKGINCLUDEDIR,C:/PROGRA~1/POSTGR~1/12/include
+INCLUDEDIR-SERVER,C:/PROGRA~1/POSTGR~1/12/include/server
+LIBDIR,C:/PROGRA~1/POSTGR~1/12/lib
+PKGLIBDIR,C:/PROGRA~1/POSTGR~1/12/lib
+LOCALEDIR,C:/PROGRA~1/POSTGR~1/12/share/locale
+MANDIR,C:/Program Files/PostgreSQL/12/man
+SHAREDIR,C:/PROGRA~1/POSTGR~1/12/share
+SYSCONFDIR,C:/Program Files/PostgreSQL/12/etc
+PGXS,C:/Program Files/PostgreSQL/12/lib/pgxs/src/makefiles/pgxs.mk
+CONFIGURE,--enable-thread-safety --enable-nls --with-ldap --with-openssl --with-ossp-uuid --with-libxml --with-libxslt --with-icu --with-tcl --with-perl --with-python
+CC,non enregistré
+CPPFLAGS,non enregistré
+CFLAGS,non enregistré
+CFLAGS_SL,non enregistré
+LDFLAGS,non enregistré
+LDFLAGS_EX,non enregistré
+LDFLAGS_SL,non enregistré
+LIBS,non enregistré
+VERSION,PostgreSQL 12.3

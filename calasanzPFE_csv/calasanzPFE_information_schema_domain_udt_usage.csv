@@ -1,0 +1,5 @@
+calasanzPFE,pg_catalog,name,calasanzPFE,information_schema,sql_identifier
+calasanzPFE,pg_catalog,int4,calasanzPFE,information_schema,cardinal_number
+calasanzPFE,pg_catalog,varchar,calasanzPFE,information_schema,character_data
+calasanzPFE,pg_catalog,varchar,calasanzPFE,information_schema,yes_or_no
+calasanzPFE,pg_catalog,timestamptz,calasanzPFE,information_schema,time_stamp

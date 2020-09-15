@@ -1,0 +1,5 @@
+calasanzPFE,information_schema,sql_identifier,name,,,,,,calasanzPFE,pg_catalog,C,,,,,,,,calasanzPFE,pg_catalog,name,,,,,1
+calasanzPFE,information_schema,cardinal_number,integer,,,,,,,,,32,2,0,,,,,calasanzPFE,pg_catalog,int4,,,,,1
+calasanzPFE,information_schema,character_data,character varying,,1073741824,,,,calasanzPFE,pg_catalog,C,,,,,,,,calasanzPFE,pg_catalog,varchar,,,,,1
+calasanzPFE,information_schema,yes_or_no,character varying,3,12,,,,calasanzPFE,pg_catalog,C,,,,,,,,calasanzPFE,pg_catalog,varchar,,,,,1
+calasanzPFE,information_schema,time_stamp,timestamp with time zone,,,,,,,,,,,,2,,,CURRENT_TIMESTAMP(2),calasanzPFE,pg_catalog,timestamptz,,,,,1

@@ -1,0 +1,15 @@
+25013,public,api_region,1,6,0,0,0,0,0,0,0,0,0,,,,,0,0,0,0
+24970,public,django_admin_log,1,15,0,0,0,0,0,0,0,0,0,,,,,0,0,0,0
+24994,public,api_document,2,12,0,0,0,0,0,0,0,0,0,,,,,0,0,0,0
+24845,public,django_migrations,1,21,0,0,0,0,0,0,0,0,0,,,,,0,0,0,0
+24866,public,auth_permission,1,40,0,0,0,0,0,0,0,0,0,,,,,0,0,0,0
+24884,public,auth_group_permissions,1,0,0,0,0,0,0,0,0,0,0,,,,,0,0,0,0
+25005,public,api_nature,1,4,0,0,0,0,0,0,0,0,0,,,,,0,0,0,0
+24910,public,auth_user_user_permissions,1,0,0,0,0,0,0,0,0,0,0,,,,,0,0,0,0
+24892,public,auth_user,1,1,0,0,0,0,0,0,0,0,0,,,,,0,0,0,0
+25021,public,api_pays,1,5,0,0,0,0,0,0,0,0,0,,,,,0,0,0,0
+25076,public,django_session,1,2,0,0,0,0,0,0,0,0,0,,,,,0,0,0,0
+24874,public,auth_group,1,0,0,0,0,0,0,0,0,0,0,,,,,0,0,0,0
+24856,public,django_content_type,1,10,0,0,0,0,0,0,0,0,0,,,,,0,0,0,0
+24902,public,auth_user_groups,1,0,0,0,0,0,0,0,0,0,0,,,,,0,0,0,0
+25029,public,api_pays_documents,2,12,0,0,0,0,0,0,0,0,0,,,,,0,0,0,0

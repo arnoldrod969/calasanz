@@ -1,0 +1,87 @@
+,,2828,,,"",,,,2020-08-01 15:15:13.682570,,,,Activity,AutoVacuumMain,,,,"",autovacuum launcher
+,,2844,10,postgres,"",,,,2020-08-01 15:15:13.695555,,,,Activity,LogicalLauncherMain,,,,"",logical replication launcher
+13318,postgres,4344,10,postgres,pgAdmin 4 - DB:postgres,::1,,1153,2020-08-01 15:21:12.204642,,2020-08-01 16:16:55.614040,2020-08-01 16:16:55.777555,Client,ClientRead,idle,,,"SELECT
+        numbackends AS ""Backends"",
+    xact_commit AS ""Xact committed"",
+    xact_rollback AS ""Xact rolled back"",
+    blks_read AS ""Blocks read"",
+    blks_hit AS ""Blocks hit"",
+    tup_returned AS ""Tuples returned"",
+    tup_fetched AS ""Tuples fetched"",
+    tup_inserted AS ""Tuples inserted"",
+    tup_updated AS ""Tuples updated"",
+    tup_deleted AS ""Tuples deleted"",
+    stats_reset AS ""Last statistics reset"",
+    slave.confl_tablespace AS ""Tablespace conflicts"",
+    slave.confl_lock AS ""Lock conflicts"",
+    slave.confl_snapshot AS ""Snapshot conflicts"",
+    slave.confl_bufferpin AS ""Bufferpin conflicts"",
+    slave.confl_deadlock AS ""Deadlock conflicts"",
+    temp_files AS ""Temporary files"",
+    temp_bytes AS ""Size of temporary files"",
+    deadlocks AS ""Deadlocks"",
+    blk_read_time AS ""Block read time"",
+    blk_write_time AS ""Block write time"",
+    pg_database_size(db.datid) AS ""Size""
+FROM
+    pg_stat_database db
+    LEFT JOIN pg_stat_database_conflicts slave ON db.datid=slave.datid
+WHERE db.datid = 24842::O",client backend
+24842,calasanzPFE,4520,10,postgres,pgAdmin 4 - DB:calasanzPFE,::1,,1173,2020-08-01 15:21:15.796236,,2020-08-01 16:18:45.821453,2020-08-01 16:18:45.858180,Client,ClientRead,idle,,,"/*pga4dash*/
+SELECT 'session_stats' AS chart_name, row_to_json(t) AS chart_data
+FROM (SELECT
+   (SELECT count(*) FROM pg_stat_activity WHERE datname = (SELECT datname FROM pg_database WHERE oid = 24842)) AS ""Total"",
+   (SELECT count(*) FROM pg_stat_activity WHERE state = 'active' AND datname = (SELECT datname FROM pg_database WHERE oid = 24842))  AS ""Active"",
+   (SELECT count(*) FROM pg_stat_activity WHERE state = 'idle' AND datname = (SELECT datname FROM pg_database WHERE oid = 24842))  AS ""Idle""
+) t
+UNION ALL
+SELECT 'tps_stats' AS chart_name, row_to_json(t) AS chart_data
+FROM (SELECT
+   (SELECT sum(xact_commit) + sum(xact_rollback) FROM pg_stat_database WHERE datname = (SELECT datname FROM pg_database WHERE oid = 24842)) AS ""Transactions"",
+   (SELECT sum(xact_commit) FROM pg_stat_database WHERE datname = (SELECT datname FROM pg_database WHERE oid = 24842)) AS ""Commits"",
+   (SELECT sum(xact_rollback) FROM pg_stat_database WHERE datname = (SELECT datname FROM pg_database WHERE oid = 24842)) AS ""Rollbacks""
+) ",client backend
+24842,calasanzPFE,5280,10,postgres,PostgreSQL JDBC Driver,127.0.0.1,,4378,2020-08-01 16:11:10.778532,,2020-08-01 16:11:11.904866,2020-08-01 16:11:11.905154,Client,ClientRead,idle,,,SHOW TRANSACTION ISOLATION LEVEL,client backend
+24842,calasanzPFE,5328,10,postgres,"",::1,,4271,2020-08-01 16:09:48.371109,,2020-08-01 16:09:48.482320,2020-08-01 16:09:48.552068,Client,ClientRead,idle,,,"SELECT ""django_migrations"".""id"", ""django_migrations"".""app"", ""django_migrations"".""name"", ""django_migrations"".""applied"" FROM ""django_migrations""",client backend
+24842,calasanzPFE,1260,10,postgres,PostgreSQL JDBC Driver,127.0.0.1,,4412,2020-08-01 16:11:41.674861,,2020-08-01 16:11:42.510098,2020-08-01 16:11:42.510475,Client,ClientRead,idle,,,SHOW TRANSACTION ISOLATION LEVEL,client backend
+16393,calasanz,4472,10,postgres,pgAdmin 4 - DB:calasanz,::1,,4535,2020-08-01 16:13:29.414118,,2020-08-01 16:13:37.876166,2020-08-01 16:13:37.929123,Client,ClientRead,idle,,,"/*pga4dash*/
+SELECT 'session_stats' AS chart_name, row_to_json(t) AS chart_data
+FROM (SELECT
+   (SELECT count(*) FROM pg_stat_activity WHERE datname = (SELECT datname FROM pg_database WHERE oid = 16393)) AS ""Total"",
+   (SELECT count(*) FROM pg_stat_activity WHERE state = 'active' AND datname = (SELECT datname FROM pg_database WHERE oid = 16393))  AS ""Active"",
+   (SELECT count(*) FROM pg_stat_activity WHERE state = 'idle' AND datname = (SELECT datname FROM pg_database WHERE oid = 16393))  AS ""Idle""
+) t
+UNION ALL
+SELECT 'tps_stats' AS chart_name, row_to_json(t) AS chart_data
+FROM (SELECT
+   (SELECT sum(xact_commit) + sum(xact_rollback) FROM pg_stat_database WHERE datname = (SELECT datname FROM pg_database WHERE oid = 16393)) AS ""Transactions"",
+   (SELECT sum(xact_commit) FROM pg_stat_database WHERE datname = (SELECT datname FROM pg_database WHERE oid = 16393)) AS ""Commits"",
+   (SELECT sum(xact_rollback) FROM pg_stat_database WHERE datname = (SELECT datname FROM pg_database WHERE oid = 16393)) AS ""Rollbacks""
+) ",client backend
+16638,graticule,5136,10,postgres,pgAdmin 4 - DB:graticule,::1,,4718,2020-08-01 16:15:53.424882,,2020-08-01 16:16:09.470014,2020-08-01 16:16:09.617212,Client,ClientRead,idle,,,"/*pga4dash*/
+SELECT 'session_stats' AS chart_name, row_to_json(t) AS chart_data
+FROM (SELECT
+   (SELECT count(*) FROM pg_stat_activity WHERE datname = (SELECT datname FROM pg_database WHERE oid = 16638)) AS ""Total"",
+   (SELECT count(*) FROM pg_stat_activity WHERE state = 'active' AND datname = (SELECT datname FROM pg_database WHERE oid = 16638))  AS ""Active"",
+   (SELECT count(*) FROM pg_stat_activity WHERE state = 'idle' AND datname = (SELECT datname FROM pg_database WHERE oid = 16638))  AS ""Idle""
+) t
+UNION ALL
+SELECT 'tps_stats' AS chart_name, row_to_json(t) AS chart_data
+FROM (SELECT
+   (SELECT sum(xact_commit) + sum(xact_rollback) FROM pg_stat_database WHERE datname = (SELECT datname FROM pg_database WHERE oid = 16638)) AS ""Transactions"",
+   (SELECT sum(xact_commit) FROM pg_stat_database WHERE datname = (SELECT datname FROM pg_database WHERE oid = 16638)) AS ""Commits"",
+   (SELECT sum(xact_rollback) FROM pg_stat_database WHERE datname = (SELECT datname FROM pg_database WHERE oid = 16638)) AS ""Rollbacks""
+) ",client backend
+24842,calasanzPFE,5844,10,postgres,pgAdmin 4 - CONN:6953335,::1,,4841,2020-08-01 16:17:09.477082,,2020-08-01 16:17:10.141535,2020-08-01 16:17:10.146886,Client,ClientRead,idle,,,"
+SELECT
+    oid as id, rolname as name, rolsuper as is_superuser,
+    CASE WHEN rolsuper THEN true ELSE rolcreaterole END as can_create_role,
+    CASE WHEN rolsuper THEN true ELSE rolcreatedb END as can_create_db
+FROM
+    pg_catalog.pg_roles
+WHERE
+    rolname = current_user",client backend
+24842,calasanzPFE,4720,10,postgres,PostgreSQL JDBC Driver,127.0.0.1,,5145,2020-08-01 16:18:45.883434,2020-08-01 16:18:45.976857,2020-08-01 16:18:45.984261,2020-08-01 16:18:45.984262,,,active,,739,SELECT t.* FROM pg_catalog.pg_stat_activity t,client backend
+,,2812,,,"",,,,2020-08-01 15:15:13.691620,,,,Activity,BgWriterHibernate,,,,"",background writer
+,,2804,,,"",,,,2020-08-01 15:15:13.805272,,,,Activity,CheckpointerMain,,,,"",checkpointer
+,,2820,,,"",,,,2020-08-01 15:15:13.682458,,,,Activity,WalWriterMain,,,,"",walwriter

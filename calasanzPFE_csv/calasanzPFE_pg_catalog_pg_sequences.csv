@@ -1,0 +1,14 @@
+public,django_migrations_id_seq,postgres,integer,1,1,2147483647,1,false,1,21
+public,django_content_type_id_seq,postgres,integer,1,1,2147483647,1,false,1,10
+public,auth_permission_id_seq,postgres,integer,1,1,2147483647,1,false,1,40
+public,auth_group_id_seq,postgres,integer,1,1,2147483647,1,false,1,
+public,auth_group_permissions_id_seq,postgres,integer,1,1,2147483647,1,false,1,
+public,auth_user_id_seq,postgres,integer,1,1,2147483647,1,false,1,1
+public,auth_user_groups_id_seq,postgres,integer,1,1,2147483647,1,false,1,
+public,auth_user_user_permissions_id_seq,postgres,integer,1,1,2147483647,1,false,1,
+public,django_admin_log_id_seq,postgres,integer,1,1,2147483647,1,false,1,15
+public,api_document_id_seq,postgres,integer,1,1,2147483647,1,false,1,7
+public,api_nature_id_seq,postgres,integer,1,1,2147483647,1,false,1,4
+public,api_region_id_seq,postgres,integer,1,1,2147483647,1,false,1,6
+public,api_pays_id_seq,postgres,integer,1,1,2147483647,1,false,1,5
+public,api_pays_documents_id_seq,postgres,integer,1,1,2147483647,1,false,1,6

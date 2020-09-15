@@ -1,0 +1,6 @@
+13318,postgres,10,6,French_France.1252,French_France.1252,false,true,-1,13317,480,1,1663,
+16393,calasanz,10,6,French_France.1252,French_France.1252,false,true,-1,13317,480,1,1663,
+1,template1,10,6,French_France.1252,French_France.1252,true,true,-1,13317,480,1,1663,"{=c/postgres,postgres=CTc/postgres}"
+13317,template0,10,6,French_France.1252,French_France.1252,true,false,-1,13317,480,1,1663,"{=c/postgres,postgres=CTc/postgres}"
+16638,graticule,10,6,French_France.1252,French_France.1252,false,true,-1,13317,480,1,1663,
+24842,calasanzPFE,10,6,French_France.1252,French_France.1252,false,true,-1,13317,480,1,1663,
